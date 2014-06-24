@@ -1,0 +1,169 @@
+///////////
+// Level config CSS
+///////////
+
+
+body.level-1{
+
+	background: url(../levels/level-1/images/level-1-bg.jpg);
+
+	.cardone .face.back {
+		background: url(../levels/level-1/images/1.png);
+	}
+	.cardtwo .face.back {
+		background: url(../levels/level-1/images/2.png);
+	}
+	.cardthree .face.back {
+		background: url(../levels/level-1/images/3.png);
+	}
+
+}
+
+body.level-2{
+	
+	background-image: url(../levels/level-2/images/level-2-bg.jpg); 
+
+	.cardone .face.back {
+		background: url(../levels/level-2/images/1.png);
+	}
+	.cardtwo .face.back {
+		background: url(../levels/level-2/images/2.png);
+	}
+	.cardthree .face.back {
+		background: url(../levels/level-2/images/3.png);
+	}
+	.cardfour .face.back {
+		background: url(../levels/level-2/images/4.png);
+	}
+}
+
+body.level-3{
+
+	background-image: url(../levels/level-3/images/level-3-bg.jpg);
+
+	.cardone .face.back {
+		background: url(../levels/level-3/images/1.png);
+	}
+	.cardtwo .face.back {
+		background: url(../levels/level-3/images/2.png);
+	}
+	.cardthree .face.back {
+		background: url(../levels/level-3/images/3.png);
+	}
+	.cardfour .face.back {
+		background: url(../levels/level-3/images/4.png);
+	}
+	.cardfive .face.back {
+		background: url(../levels/level-3/images/5.png);
+	}
+
+}
+
+body.level-4{
+
+	background-image: url(../levels/level-4/images/level-4-bg.jpg); 
+
+	.cardone .face.back {
+		background: url(../levels/level-4/images/1.png);
+	}
+	.cardtwo .face.back {
+		background: url(../levels/level-4/images/2.png);
+	}
+	.cardthree .face.back {
+		background: url(../levels/level-4/images/3.png);
+	}
+	.cardfour .face.back {
+		background: url(../levels/level-4/images/4.png);
+	}
+	.cardfive .face.back {
+		background: url(../levels/level-4/images/5.png);
+	}
+	.cardsix .face.back {
+		background: url(../levels/level-4/images/6.png);
+	}
+
+}
+
+body.level-5{
+
+	background-image: url(../levels/level-5/images/level-5-bg.jpg); 
+
+	.cardone .face.back {
+		background: url(../levels/level-5/images/1.png);
+	}
+	.cardtwo .face.back {
+		background: url(../levels/level-5/images/2.png);
+	}
+	.cardthree .face.back {
+		background: url(../levels/level-5/images/3.png);
+	}
+	.cardfour .face.back {
+		background: url(../levels/level-5/images/4.png);
+	}
+	.cardfive .face.back {
+		background: url(../levels/level-5/images/5.png);
+	}
+	.cardsix .face.back {
+		background: url(../levels/level-5/images/6.png);
+	}
+	.cardseven .face.back {
+		background: url(../levels/level-5/images/7.png);
+	}
+	.cardeight .face.back {
+		background: url(../levels/level-5/images/8.png);
+	}
+	.cardnine .face.back {
+		background: url(../levels/level-5/images/9.png);
+	}
+
+}
+
+body.level-6{
+
+	.levelCompleteButtons.nextLevel{
+		display: none;
+	}
+	.levelCompleteButtons.finalLevel{
+		display: block;
+	}
+
+	background-image: url(../levels/level-6/images/level-6-bg.jpg); 
+
+	.cardone .face.back {
+		background: url(../levels/level-6/images/1.png);
+	}
+	.cardtwo .face.back {
+		background: url(../levels/level-6/images/2.png);
+	}
+	.cardthree .face.back {
+		background: url(../levels/level-6/images/3.png);
+	}
+	.cardfour .face.back {
+		background: url(../levels/level-6/images/4.png);
+	}
+	.cardfive .face.back {
+		background: url(../levels/level-6/images/5.png);
+	}
+	.cardsix .face.back {
+		background: url(../levels/level-6/images/6.png);
+	}
+	.cardseven .face.back {
+		background: url(../levels/level-6/images/7.png);
+	}
+	.cardeight .face.back {
+		background: url(../levels/level-6/images/8.png);
+	}
+	.cardnine .face.back {
+		background: url(../levels/level-6/images/9.png);
+	}
+	.cardten .face.back {
+		background: url(../levels/level-6/images/10.png);
+	}
+	.cardeleven .face.back {
+		background: url(../levels/level-6/images/11.png);
+	}
+	.cardtwelve .face.back {
+		background: url(../levels/level-6/images/12.png);
+	}
+
+}
