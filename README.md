@@ -4,7 +4,7 @@ Memory
 A responsive JavaScript game
 
 ###About
-This is my first attempt at building a web app. I built the game due to the logic involved in the code. The script may be clunky and poorly structured, this is purely down to my learning process.  
+This is my first attempt at building a web app. I built the game due to the logic involved in the code, which I figured would help me learn more! Expect the script to be clunky and poorly structured, nevertheless I had a lot of fun building it and hope that it may come of use to somebody!  
 
 
 ###Setup
