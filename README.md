@@ -3,6 +3,10 @@ Memory
 
 A responsive JavaScript game
 
+###About
+This is my first attempt at building a web app. I built the game due to the logic involved in the code. The script may be clunky and poorly structured, this is purely down to my learning process.  
+
+
 ###Setup
 `cd` into root project file with command line, run `grunt`. For more information on how to use Grunt, go to http://gruntjs.com/getting-started
 
