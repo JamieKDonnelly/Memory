@@ -1,7 +1,7 @@
 Memory
 ======
 
-A responsive JavaScript game
+A responsive JavaScript game - http://jamiekdonnelly.github.io/Memory/
 
 ###About
 This is my first attempt at building a web app. I built the game due to the logic involved in the code, which I figured would help me learn more! Expect the script to be clunky and poorly structured, nevertheless I had a lot of fun building it and hope that it may come of use to somebody!  
@@ -14,6 +14,3 @@ This is my first attempt at building a web app. I built the game due to the logi
   - Currently not working in IE due to 3D 
   - Images need preloading 
   - Script could be tidier! 
-
-###Live demo
-http://jamiekdonnelly.github.io/Memory/
