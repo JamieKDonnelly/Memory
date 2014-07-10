@@ -18,7 +18,7 @@ To get stuck into the code, you'll need to rub Grunt.
 
 Stuck? For more information on how to use Grunt, go to http://gruntjs.com/getting-started
 
-###Bugs and Issues
-  - Currently not working in IE due to 3D 
-  - Images need preloading 
-  - Script could be tidier! 
+###Bugs and To-Do's!
+  - Currently not working in IE due to CSS3 preserve 3D 
+  - Images load immensly slow, need preloading.
+  - Script could probably be tidier! 
