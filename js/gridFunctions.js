@@ -48,10 +48,8 @@ function gridFunction(){
 		});
 	}
 
-	
 	// Shuffle the unordered list
 	shuffle();
-
 
 	// Find number of possible cards to detect completed game
 	var level = $('.flipGrid li').length;
@@ -66,11 +64,9 @@ function gridFunction(){
 		$('.gridContainer').css({'max-width' : docHeight * maxWidth});	
 	});
 
-	
 	// Load helper for vertical align
 	$( '.gridWrapper' ).prepend( '<div class="gridHelper"></div>' );	
 
-	
 	// Find matching flip cards		
 	$('.flipContent').click(function() {
 	
@@ -85,7 +81,8 @@ function gridFunction(){
 			// Count number of turns
 			$('.flipCounterText span').html(function(i, val) { return val*1+1 });
 			$('.gridContentCover').css({ display: 'block'});
-			
+
+			// Detect matching cards
 			var class1 = (" " + $(".active:eq(0)").attr("class") + " ")
 				.replace(" flip ", "")
 				.replace(" active ", "")
@@ -94,16 +91,16 @@ function gridFunction(){
 				.replace(" flip ", "")
 				.replace(" active ", "")
 				.replace(/^ +| +$/g, "");
+
+			// Trigger matched animation
 			if (class1 === class2) {
-				$(".active").addClass("animationOn").toggleClass("active matching");
-				
-				// Trigger matched animation
+				$(".active").addClass("animationOn").toggleClass("active matching");				
 				$(".matching.animationOn .face.back").addClass("glow");
-					function matchedAnimation(){
-						$(".matching .face.back").removeClass("glow");
-						$(".matching").removeClass("animationOn");
-					}
-					setTimeout(matchedAnimation, 500);				
+				function matchedAnimation(){
+					$(".matching .face.back").removeClass("glow");
+					$(".matching").removeClass("animationOn");
+				}
+				setTimeout(matchedAnimation, 500);				
 			}
 		
 			// If not matching 	
@@ -114,10 +111,8 @@ function gridFunction(){
 			setTimeout(notMatching, delayTime);			    
 		}
 		
-		
 		// Detect the completion of all matches and alert
 		var matchingCards = $('.flipContent.matching').length;	
-
 		if(matchingCards === level){
 			var finalScore = $('.flipCounterText span').html();
 			$('.finalScore span').html(finalScore);

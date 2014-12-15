@@ -3,19 +3,15 @@
 <head>
 	<title>Memory</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0", user-scalable="no"/>
 	<script src="dist/modernizr.min.js"></script>
-
-	<!-- CSS -->
 	<link rel="stylesheet" href="dist/app.min.css" />
-
 </head>
 <body class="start">
 	
-	<!-- Main content -->
-	<div class="row startPage">
-		<div class="small-8 small-centered columns startContent">
+	<!-- Start page -->
+	<div class="startPage">
+		<div class="startContent">
 			<div class="startPageLogo">
 				<svg class="mainLogo" version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0.382 -0.115 753 581">
 					<defs>
@@ -73,10 +69,12 @@
 		</a>		
 	</div>
 
+	<!-- Bottom bar -->
 	<div class="bottomBar">		
 		<p><a href="http://www.jamiekdonnelly.co.uk">www.jamiekdonnelly.co.uk</a></p>		
 	</div>
 
+	<!-- Loading screen -->
 	<div class="loadingDiv">
 		<div class="loader">
 			<svg class="loaderImage" x="0px" y="0px" viewBox="0 0 366 366" enable-background="new 0 0 366 366" xml:space="preserve">
@@ -120,13 +118,14 @@
 		</div>
 	</div>
 		
+	<!-- The grid -->
 	<section class="gridWrapper">
-	</section>
-		
+	</section>		
 		
 	<!-- Modals -->
 	<div id="levelCompleteModal" class="reveal-modal large" data-reveal>
 
+		<!-- For next level -->
 		<div class="row">		
 			<div id="nextModal" class="small-12 medium-12 medium-centered large-8 large-centered columns">
 				<div class="row">
@@ -134,7 +133,7 @@
 						<div class="levelNumber">
 							<h1 class="">Level <span></span></h1>
 						</div>				
-						<p class="finalScore">Completed in <span> </span>  moves!</p>
+						<p class="finalScore">Completed in <span> </span> moves!</p>
 					</div>
 				</div>	
 				<div class="row">	
@@ -144,7 +143,8 @@
 				</div>
 			</div>
 		</div>
-
+		
+		<!-- For the last level -->
 		<div class="row">
 			<div id="finalModal" class="small-12 medium-12 medium-centered large-8 large-centered columns">
 				<div class="row">

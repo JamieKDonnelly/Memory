@@ -35,6 +35,8 @@ function levelSelector(){
 //
 function level1(){
 
+	$('body').attr('id', '');
+
 	// Set the level number
 	levelNumber = "1";
 

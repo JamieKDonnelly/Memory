@@ -8,9 +8,6 @@ $(document).ready(function() {
 	function closeModal(){
 		$(this).foundation('reveal', 'close');
 	}
-	function closeMenu(){
-		$('.off-canvas-wrap').removeClass('move-right');
-	}
 
 	// Set the variables 
 	var cards = "";
@@ -20,15 +17,15 @@ $(document).ready(function() {
 	var levelNumber = "";
 
 
-	// Load the configuration for the level selector
+	// Load the level selector configuration
 	levelSelector();
 
 	// Reset game
 	$('.resetGame').click(function(){
 		$('.loadingDiv').fadeIn('slow');
-		level1();
-		closeModal();	
+		level1();	
 		function loadDelay(){
+			closeModal();
 			gridFunction();
 			$('.loadingDiv').fadeOut('medium');
 		}
@@ -38,8 +35,8 @@ $(document).ready(function() {
 	// Next level button after each level
 	$('.nextLevelButton').click( function (){
 		$('.loadingDiv').fadeIn('slow');
-		closeModal();
 		function loadDelay(){
+			closeModal();
 			gridFunction();
 			$('.loadingDiv').fadeOut('slow');
 		}

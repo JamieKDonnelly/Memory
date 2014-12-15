@@ -361,8 +361,21 @@ ul.off-canvas-list li a.menuActive {
  ======================= */
 
 #levelCompleteModal{
+	display: block;
+	opacity: 1;
+	visibility: visible;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 14em;
 	text-align: center;
-
+	opacity: 0;
+	z-index: -99;
+	&.open{
+		z-index: 99;
+	}
 	.levelNumber{
 		padding: 0;
 	}
@@ -450,11 +463,17 @@ body#finalLevel{
 	visibility: hidden;
 
 	.startContent{
-		position: relative;
+		position: absolute;
 		z-index: 10;
 		text-align: center;
-		top: 20%;
-
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		margin: auto;
+		width: 42em;
+		height: 24em;
+		max-width: 100%;
 		.startPageLogo{
 			display: inline-block;
 			position: relative;
