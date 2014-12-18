@@ -373,6 +373,14 @@ ul.off-canvas-list li a.menuActive {
 	text-align: center;
 	opacity: 0;
 	z-index: -99;
+	width: 80%;
+	@media #{$medium-up}{
+		width: 60%;
+	}
+	@media #{$large-up}{
+		width: 45%;
+	}
+
 	&.open{
 		z-index: 99;
 	}
@@ -394,7 +402,6 @@ ul.off-canvas-list li a.menuActive {
 	display: block;
 	width: 100%;
 	padding: 3%;
-
 	@media #{$small-up}{ 
 		float: left;
 		margin-bottom: 0;
@@ -405,7 +412,7 @@ ul.off-canvas-list li a.menuActive {
 	float: none;
 	display: block;
 	width: 100%;
-	padding: 3%;
+	padding: 15px;
 
 	@media #{$small-up}{ 
 		float: right;
@@ -471,9 +478,13 @@ body#finalLevel{
 		left: 0;
 		bottom: 0;
 		margin: auto;
-		width: 42em;
-		height: 24em;
+		width: 20em;
+		height: 14em;
 		max-width: 100%;
+		@media #{$medium-up}{
+			width: 42em;
+			height: 24em;
+		}
 		.startPageLogo{
 			display: inline-block;
 			position: relative;
@@ -751,6 +762,11 @@ body#finalLevel{
 	background-size: contain !important;
 }
 
+// Fix for IE
+.active .face.back, .matching .face.back {
+	-ms-transform: rotateY(0deg);
+}
+
 /*Matching cards*/
 
 .flipContent.matching .flipCard {
@@ -758,6 +774,7 @@ body#finalLevel{
 	-moz-transform: rotateY(180deg);
 	-o-transform: rotateY(180deg);
 	transform: rotateY(180deg);	
+	-ms-transform: rotateY(180deg);
 }
 
 .back.face{
@@ -765,11 +782,12 @@ body#finalLevel{
 	-moz-transition: all 1s;
 	-o-transition: all 1s;
 	transition: all 1s;
+	-ms-transition: all 0.3s;
 }
 
 .glow{
-	-webkit-box-shadow: inset 0px 0px 20px 10px #51829b;
-	-moz-box-shadow: inset 0px 0px 20px 10px #51829b;
-	-o-box-shadow: inset 0px 0px 20px 10px #51829b;
-	box-shadow: inset 0px 0px 20px 10px #51829b;
+	-webkit-box-shadow: inset 0px 0px 20px 10px #f2f2f2;
+	-moz-box-shadow: inset 0px 0px 20px 10px #f2f2f2;
+	-o-box-shadow: inset 0px 0px 20px 10px #f2f2f2;
+	box-shadow: inset 0px 0px 20px 10px #f2f2f2;
 }
