@@ -393,6 +393,17 @@ ul.off-canvas-list li a.menuActive {
 	text-align: center;
 }
 
+#finalLevel #levelCompleteModal{
+	width: 55%;
+	height: 22em;
+	@media #{$medium-up}{
+		width: 60%;
+	}
+	@media #{$large-up}{
+		width: 55%;
+	}
+}
+
 .finalLevel{
 	display: none;
 }
