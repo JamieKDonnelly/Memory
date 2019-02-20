@@ -1,0 +1,23 @@
+.levelInfoBar {
+  display :block;
+  width:100%;
+  position:absolute;
+  top: 0;
+  color: #ffffff;
+  text-align:center;
+  background: rgba(22, 22, 22, 0.4);
+  -webkit-transition:all 1s linear 1.5s;
+  -moz-transition:all 1s linear 1.5s;
+  -o-transition:all 1s linear 1.5s;
+  transition:all 1s linear 1.5s;
+}
+
+.levelInfoBar > div {
+  display: inline-block;
+  padding: 5px 0;
+}
+
+.levelInfoBar > div p {
+  margin: 0 10px;
+  padding: 0;
+}

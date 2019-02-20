@@ -1,0 +1,84 @@
+.flipContainer {
+    width: auto;
+    padding-bottom: 100%;
+    position: relative;
+}
+
+.flipContent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -o-perspective: 1000px;
+    perspective: 1000px;
+}
+
+.flipGrid li.active .flipCard {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.flipContainerRel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.flipCard {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: all 0.3s linear;
+    -moz-transform-style: preserve-3d;
+    -moz-transition: all 0.3s linear;
+    -o-transform-style: preserve-3d;
+    -o-transition: all 0.3s linear;
+    transform-style: preserve-3d;
+    transition: all 0.3s linear;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.back.face {
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    -ms-transition: all 0.3s;
+}
+
+.face.front {
+    background-size: contain;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.face.back {
+    display: block;
+    -webkit-transform: rotateY(180deg);
+    -webkit-box-sizing: border-box;
+    -moz-transform: rotateY(180deg);
+    -moz-box-sizing: border-box;
+    -o-transform: rotateY(180deg);
+    -o-box-sizing: border-box;
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    background: #161616;
+    background-size: contain !important;
+}

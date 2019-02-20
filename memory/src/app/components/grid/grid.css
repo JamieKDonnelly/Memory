@@ -1,0 +1,62 @@
+.gridWrapper {
+  position:absolute;
+  z-index:0;
+  top:0;
+  width:100%;
+  height:100%;
+  display:block;
+  text-align:center;
+  -webkit-transition:opacity 1s linear;
+  -moz-transition:opacity 1s linear;
+  -o-transition:opacity 1s linear;
+  transition:opacity 1s linear;
+}
+
+.gridHelper {
+  display:inline-block;
+  vertical-align:middle;
+  height:100%;
+}
+
+.gridContainer {
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 0 10px 0;
+}
+
+.gridContentCover {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.flipGrid[class*="block-grid-"] {
+  margin: 0 2%;
+  border-left: 2px solid #cccccc;
+  border-top: 2px solid #cccccc;
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.6);
+}
+
+.flipGrid > li {
+  padding: 0;
+  margin: 0;
+  border-right: 2px solid #cccccc;
+  border-bottom: 2px solid #cccccc;
+}
+
+@media only screen and (min-width:40.063em){
+  .flipGrid {
+      box-shadow:0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+      -webkit-box-shadow:0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+      -o-box-shadow:0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+      -moz-box-shadow:0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+  }
+}

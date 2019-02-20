@@ -1,0 +1,15 @@
+.bottomBar {
+  bottom:0;
+  position:absolute;
+  width:100%;
+  text-align:center;
+  z-index:12;
+}
+.bottomBar p {
+  margin:0;
+  font-size:0.9rem;
+}
+button{
+  position: fixed;
+  z-index: 9999;
+}
