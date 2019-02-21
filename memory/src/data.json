@@ -6,13 +6,16 @@
         "background": "/images/level-1/level-1-bg.jpg",
         "tiles": [
             {
-                "background": "images/level-1/1.png"
+                "background": "images/level-1/1.png",
+                "id": "4756438567345677"
             },
             {
-                "background": "images/level-1/2.png"
+                "background": "images/level-1/2.png",
+                "id": "4756437567345677"
             },
             {
-                "background": "images/level-1/3.png"
+                "background": "images/level-1/3.png",
+                "id": "4756436567345677"
             }
         ]
     },

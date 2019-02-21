@@ -4,7 +4,7 @@ class LevelModals extends Component {
   render() {
     return (
         <div id="levelCompleteModal" className="reveal-modal large" data-reveal>
-            <div className="row">		
+            {/*<div className="row">		
                 <div id="nextModal" className="small-12 medium-12 medium-centered large-8 large-centered columns">
                     <div className="row">
                         <div className="small-12 columns">
@@ -20,7 +20,7 @@ class LevelModals extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+             </div> 
 
             <div className="row">
                 <div id="finalModal" className="small-12 medium-12 medium-centered large-8 large-centered columns">
@@ -38,7 +38,7 @@ class LevelModals extends Component {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div>*/}
 
         </div>
     );

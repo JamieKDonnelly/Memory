@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app/App';
+import App from './components/app/App';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
-import './app/css/normalize.css';
-import './app/css/block-grid.css';
+import './css/normalize.css';
+import './css/block-grid.css';
 
 ReactDOM.render(<App /> , document.getElementById('root'));
 
