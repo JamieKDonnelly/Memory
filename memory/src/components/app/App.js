@@ -9,15 +9,10 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      data: {},
       loading: true,
+      tileLength: 0,
       level: 0,
       moves: 0,
-      gridSize: "",
-      maxWidth: 0,
-      delayTime: 0,
-      background: "", 
-      tiles: []
     }
     this.nextLevel = this.nextLevel.bind(this);
   }
@@ -40,16 +35,17 @@ class App extends Component {
   }
 
   setInitialState(data){
-    //document.body.style.background = this.state.background
+    data.forEach((el, index)=>{
+      el.tiles.forEach((el, index)=>{
+        el.tileIndex = index + 1
+        el.classname = ""
+      })
+    })
     this.setState({
-      data: data,
-      loading: false,
-      gridSize: data[this.state.level].gridSize,
-      maxWidth: data[this.state.level].maxWidth,
-      delayTime: data[this.state.level].delayTime,
-      background: data[this.state.level].background,
-      tiles: data[this.state.level].tiles
-    });
+      gameData: data,
+      level: this.state.level + 1,
+      loading: false
+    })
   }
 
   turnHandler = (winner)=>{    
@@ -64,46 +60,38 @@ class App extends Component {
 
   nextLevel(){
     this.setState({
-      moves: 0,
-      level: this.state.level + 1,
-      gridSize: this.state.data[this.state.level + 1].gridSize,
-      maxWidth: this.state.data[this.state.level + 1].maxWidth,
-      delayTime: this.state.data[this.state.level + 1].delayTime,
-      background: this.state.data[this.state.level + 1].background,
-      tiles: this.state.data[this.state.level + 1].tiles
-    });
+      level: this.state.level + 1
+    }, ()=>{
+      this.setState({
+        moves: 0
+      });
+    })
   }
 
   render() {
+    if(this.state.loading === true){
+      return(
+        < Loader />
+      )
+    }
     return (
       <div>
-
-        <button id="test" onClick={this.changeLevel}>+ MOVES</button>
-
+        <button onClick={this.nextLevel}>Next Level</button>
         < Grid 
-            data={this.state}
+            level={this.state.level}
+            levelData={this.state.gameData[this.state.level-1]}            
             turnHandler={this.turnHandler}
         />
-
         < LevelInfoBar 
-            level={this.state.level + 1} 
+            level={this.state.level} 
             moves={this.state.moves}
         />
-
-         < LevelModals />
-
-        {this.state.loading 
-          ?
-          <Loader/>
-          :
-          null
-        }
-
+        < LevelModals />
         <div className="bottomBar">		
           <p><a href="http://www.jamiekdonnelly.co.uk">www.jamiekdonnelly.co.uk</a></p>		
         </div>
 
-      </div>
+      </div>      
     );
   }
 }

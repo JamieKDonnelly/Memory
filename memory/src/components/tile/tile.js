@@ -10,30 +10,23 @@ class Tile extends Component {
   constructor(props){
     super(props)
     this.state = {
-      classname: "",
-      initialised: false
+      classname: this.props.classname
     }
-    this.imgBG = "";
   }
 
-  componentWillReceiveProps(props){
-    if(this.state.initialised === false){
-      this.setState({
-        initialised: true,
-        imgBG: require(`./../../images/level-${this.props.level+1}/${this.props.data.tileIndex+1}.png`)
-      })
-    }
+  componentWillReceiveProps(){
+
   }
 
   render() {
     return (
-      <li className={this.state.classname} bg={`Tile Index: ${this.props.data.tileIndex+1}`} id={this.props.data.id} onClick={(e)=> {this.props.onClick(this)}}>
+      <li className={this.props.classname} id={this.props.data.id} onClick={(e)=> {this.props.onClick(this)}}>
         <div className="flipContainer">
           <div className="flipContent">
             <div className="flipContainerRel">
               <div className="flipCard">
                 <div className="front face" style={frontFaceStyle}></div>
-                <div className="back face" style={{backgroundImage: `url(${this.state.imgBG})` }} ></div>
+                <div className="back face" style={{backgroundImage: "url(" + require(`./../../images/level-${this.props.level}/${this.props.data.tileIndex}.png`) + ")" }} ></div>
               </div>
             </div>
           </div>
