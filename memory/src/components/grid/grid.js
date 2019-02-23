@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import Tile from '../tile/tile';
 import './grid.css';
-let shuffle = require('shuffle-array');
 
 class Grid extends Component {
   constructor(props){
     super(props)
     this.state = {
-      prevLevel: 0,
-      loading: true,
+      currentLevel: 0,
       completedTiles: 0,
+      loading: true,      
       isGuessing: false,
-      tileFirstGuess: {},
-      tileSecondGuess: {},
-      firstGoNewLevel: true
+      firstGoOnLevel: true,
+      firstGuess: "",
+      secondGuess: ""
     }
     this.tileClick = this.tileClick.bind(this);
-    this.calculateGuess = this.calculateGuess.bind(this);
+    this.calculateGuesses = this.calculateGuesses.bind(this);
     this.calculateWin = this.calculateWin.bind(this);
   }
 
@@ -25,7 +24,7 @@ class Grid extends Component {
   }
 
   componentWillReceiveProps(){
-    if(this.state.firstGoNewLevel === true && this.state.prevLevel !== this.props.level){
+    if(this.state.firstGoOnLevel === true && this.state.currentLevel !== this.props.level){
       this.setLevel();
     }
   }
@@ -34,95 +33,83 @@ class Grid extends Component {
     this.style = {
       maxWidth: this.props.levelData.maxWidth * window.innerHeight
     }
-    this.flipGridClass = `flipGrid ${this.props.levelData.gridSize}`
-
+    this.flipGridClass = `flipGrid ${this.props.levelData.gridSize}`    
     this.setState({
       tiles: this.props.levelData.tiles,
-      prevLevel: this.props.level
-    }, ()=> {
-      this.setState({
-        tileLength: this.state.tiles.length,
-        tiles: this.state.tiles.concat(this.state.tiles)        
-      }, ()=> {
-        this.setState({
-          tiles: shuffle(this.state.tiles),
-          loading: false
-        })
-      });
+      currentLevel: this.props.level,
+      tilesLength: this.props.levelData.tiles.length / 2, 
+      loading: false
     }) 
   }
 
-  tileClick(e){
-    let tile = e // this.state.tiles.tileIndex[e.props.data.tileIndex];
+  resetGrid(){
+    this.setState({
+      firstGoOnLevel: true
+    })
+    this.state.tiles.forEach((el, index)=>{
+      // Reset active classes
+    })
+  }
 
-    if(this.state.isGuessing){
-      tile.setState({
-        classname: "active"
-      })
-
+  tileClick(tile){
+    if(!this.state.isGuessing){
+      let newTileState = this.state.tiles
+      newTileState[tile.props.dataIndex].classname = "active"
       this.setState({
-        tileSecondGuess: tile
-      }, ()=> {
-        setTimeout(()=>{
-          this.calculateGuess(tile)
-        }, this.props.levelData.delayTime)
+        tiles: newTileState
       })
-      
+      this.setState({
+        firstGoOnLevel: false,
+        isGuessing: true,
+        firstGuessTile: tile.props
+      })
     } else{
-      tile.setState({
-        classname: "active"  
-      })
-
+      let newTileState = this.state.tiles
+      newTileState[tile.props.dataIndex].classname = "active"
       this.setState({
-        tileFirstGuess: tile,
-        firstGoNewLevel: false,
-        isGuessing: true
+        tiles: newTileState
+      })
+      this.setState({
+        secondGuessTile: tile.props
+      },()=>{
+        setTimeout(()=>{
+          this.calculateGuesses();
+        }, this.props.levelData.delayTime)
       })
     }
   } 
 
-  calculateGuess(){
-    if(this.state.tileFirstGuess.props.data.id === this.state.tileSecondGuess.props.data.id){
-      this.state.tileFirstGuess.setState({
-        classname: "matched"
-      })
-      this.state.tileSecondGuess.setState({
-        classname: "matched"
-      })
+  calculateGuesses(){
+    if(this.state.firstGuessTile.data.tileIndex === this.state.secondGuessTile.data.tileIndex){
       this.setState({
         completedTiles: this.state.completedTiles + 1
       })
-    } else{
-      this.state.tileFirstGuess.setState({
-        classname: ""
-      }, ()=>{
-        this.setState({
-          tileFirstGuess: {}
-        })
+      let newTileState = this.state.tiles
+      newTileState.forEach((index)=>{
+        newTileState[this.state.firstGuessTile.dataIndex].classname = "matched"
+        newTileState[this.state.secondGuessTile.dataIndex].classname = "matched"
       })
-      this.state.tileSecondGuess.setState({
-        classname: ""
-      }, ()=>{
-        this.setState({
-          tileSecondGuess: {}
-        })
+      this.setState({
+        tiles: newTileState
       })
-    }
-    this.calculateWin()
+    } 
+    else{
+      let newTileState = this.state.tiles
+      newTileState.forEach((index)=>{
+        newTileState[this.state.firstGuessTile.dataIndex].classname = ""
+        newTileState[this.state.secondGuessTile.dataIndex].classname = ""
+      })
+      this.setState({
+        tiles: newTileState
+      })
+    }   
+    this.calculateWin() 
   }
 
   calculateWin(){
     let winner = false;
-    if(this.state.completedTiles === (this.state.tileLength)){
+    if(this.state.completedTiles === (this.state.tilesLength)){
       winner = true;
-      this.setState({
-        firstGoNewLevel: true
-      })
-      this.state.tiles.forEach((el, index)=>{
-        let tileItem = this.state.tiles[index];
-        tileItem.classname = "";
-        this.setState({tileItem})
-      })
     }    
     this.setState({
       isGuessing: false
@@ -144,8 +131,9 @@ class Grid extends Component {
           <div className="gridContentCover">
           </div>
           <ul className={this.flipGridClass}>
-            {this.state.tiles.map((item, key) =>{
-              return <Tile classname={item.classname} data={item} level={this.props.level} key={key} onClick={this.tileClick} />
+            {this.state.tiles.map((item, index) =>{
+              let keyValue = `${this.props.level}-${index}`;
+              return <Tile data={item} dataIndex={index} level={this.props.level} key={keyValue} onClick={this.tileClick} />
             })}
           </ul>
         </div>        

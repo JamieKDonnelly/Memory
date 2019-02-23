@@ -4,13 +4,14 @@ import LevelInfoBar from '../level-info-bar/level-info-bar';
 import Loader from '../loader/loader';
 import LevelModals from '../level-modals/level-modals';
 import './App.css';
+let shuffle = require('shuffle-array');
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
       loading: true,
-      tileLength: 0,
+      tilesLength: 0,
       level: 0,
       moves: 0,
     }
@@ -36,10 +37,23 @@ class App extends Component {
 
   setInitialState(data){
     data.forEach((el, index)=>{
-      el.tiles.forEach((el, index)=>{
-        el.tileIndex = index + 1
-        el.classname = ""
-      })
+      let length = el.tiles
+      el.tiles = []
+      for(let i = 0; i < length; i++){
+        let tile = {
+          classname: "",
+          tileIndex: i + 1
+        }
+        el.tiles.push(tile)
+      } 
+      for(let i = 0; i < length; i++){
+        let tile = {
+          classname: "",
+          tileIndex: i + 1
+        }
+        el.tiles.push(tile)
+      } 
+      shuffle(el.tiles)
     })
     this.setState({
       gameData: data,

@@ -7,20 +7,9 @@ const frontFaceStyle = {
 }
 
 class Tile extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      classname: this.props.classname
-    }
-  }
-
-  componentWillReceiveProps(){
-
-  }
-
   render() {
     return (
-      <li className={this.props.classname} id={this.props.data.id} onClick={(e)=> {this.props.onClick(this)}}>
+      <li className={this.props.data.classname} onClick={(e)=> {this.props.onClick(this)}}>
         <div className="flipContainer">
           <div className="flipContent">
             <div className="flipContainerRel">
