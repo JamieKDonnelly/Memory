@@ -14,6 +14,7 @@ class App extends Component {
       tilesLength: 0,
       level: 0,
       moves: 0,
+      totalMoves: 0
     }
     this.nextLevel = this.nextLevel.bind(this);
   }
@@ -74,6 +75,7 @@ class App extends Component {
 
   nextLevel(){
     this.setState({
+      totalMoves: this.state.totalMoves + this.state.moves,
       level: this.state.level + 1
     }, ()=>{
       this.setState({

@@ -30,7 +30,10 @@ class Grid extends Component {
   }
 
   setLevel(){
-    this.style = {
+    this.pageStyle = {
+      backgroundImage: "url(" + require(`./../../images/level-${this.props.level}/level-${this.props.level}-bg.jpg`) + ")"
+    }
+    this.gridStyle = {
       maxWidth: this.props.levelData.maxWidth * window.innerHeight
     }
     this.flipGridClass = `flipGrid ${this.props.levelData.gridSize}`    
@@ -39,15 +42,6 @@ class Grid extends Component {
       currentLevel: this.props.level,
       tilesLength: this.props.levelData.tiles.length / 2, 
       loading: false
-    }) 
-  }
-
-  resetGrid(){
-    this.setState({
-      firstGoOnLevel: true
-    })
-    this.state.tiles.forEach((el, index)=>{
-      // Reset active classes
     })
   }
 
@@ -110,7 +104,11 @@ class Grid extends Component {
     let winner = false;
     if(this.state.completedTiles === (this.state.tilesLength)){
       winner = true;
-    }    
+      this.setState({
+        firstGoOnLevel: true,
+        completedTiles: 0
+      });
+    }
     this.setState({
       isGuessing: false
     })
@@ -125,9 +123,9 @@ class Grid extends Component {
     }
     
     return (
-      <section className="gridWrapper">
+      <section className="gridWrapper" style={this.pageStyle} >
         <div className="gridHelper"></div>
-        <div className="gridContainer" style={this.style}>
+        <div className="gridContainer" style={this.gridStyle} >
           <div className="gridContentCover">
           </div>
           <ul className={this.flipGridClass}>
