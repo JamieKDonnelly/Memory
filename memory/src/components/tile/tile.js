@@ -8,6 +8,7 @@ const frontFaceStyle = {
 
 class Tile extends Component {
   render() {
+    console.log('Render Tile');
     return (
       <li className={this.props.data.classname} onClick={(e)=> {this.props.onClick(this)}}>
         <div className="flipContainer">

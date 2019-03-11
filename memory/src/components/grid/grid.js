@@ -8,8 +8,9 @@ class Grid extends Component {
     this.state = {
       currentLevel: 0,
       completedTiles: 0,
-      loading: true,      
-      isGuessing: false,
+      loading: true,    
+      calculatingGuess: false,  
+      takingSecondGuess: false,
       firstGoOnLevel: true,
       firstGuess: "",
       secondGuess: ""
@@ -46,16 +47,22 @@ class Grid extends Component {
   }
 
   tileClick(tile){
-    if(!this.state.isGuessing){
+    if(this.state.calculatingGuess === true){
+      return;
+    }
+    if(this.state.takingSecondGuess){
       let newTileState = this.state.tiles
       newTileState[tile.props.dataIndex].classname = "active"
       this.setState({
-        tiles: newTileState
+        tiles: newTileState,
+        calculatingGuess: true
       })
       this.setState({
-        firstGoOnLevel: false,
-        isGuessing: true,
-        firstGuessTile: tile.props
+        secondGuessTile: tile.props
+      },()=>{
+        setTimeout(()=>{
+          this.calculateGuesses();
+        }, this.props.levelData.delayTime)
       })
     } else{
       let newTileState = this.state.tiles
@@ -64,11 +71,9 @@ class Grid extends Component {
         tiles: newTileState
       })
       this.setState({
-        secondGuessTile: tile.props
-      },()=>{
-        setTimeout(()=>{
-          this.calculateGuesses();
-        }, this.props.levelData.delayTime)
+        firstGoOnLevel: false,
+        takingSecondGuess: true,
+        firstGuessTile: tile.props
       })
     }
   } 
@@ -110,9 +115,10 @@ class Grid extends Component {
       });
     }
     this.setState({
-      isGuessing: false
+      takingSecondGuess: false,
+      calculatingGuess: false
     })
-    this.props.turnHandler(winner);
+    this.props.levelHandler(winner);
   }
 
   render() {
@@ -120,8 +126,7 @@ class Grid extends Component {
       return(
         <div></div>
       )
-    }
-    
+    }    
     return (
       <section className="gridWrapper" style={this.pageStyle} >
         <div className="gridHelper"></div>

@@ -63,7 +63,7 @@ class App extends Component {
     })
   }
 
-  turnHandler = (winner)=>{    
+  levelHandler = (winner)=>{    
     this.setState({
       moves: this.state.moves + 1
     })
@@ -96,7 +96,7 @@ class App extends Component {
         < Grid 
             level={this.state.level}
             levelData={this.state.gameData[this.state.level-1]}            
-            turnHandler={this.turnHandler}
+            levelHandler={this.levelHandler}
         />
         < LevelInfoBar 
             level={this.state.level} 
